@@ -925,7 +925,7 @@ fn Arguments(
     }
 
     return @Type(.{ .Struct = .{
-        .layout = .Auto,
+        .layout = if (@hasField(std.builtin.Type.ContainerLayout, "auto")) .auto else .Auto,
         .fields = fields[0..i],
         .decls = &.{},
         .is_tuple = false,
